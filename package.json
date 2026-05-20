@@ -1,0 +1,51 @@
+{
+  "name": "@kineticgain/well-known-probe",
+  "version": "0.1.0",
+  "description": "Zero-dependency probe for the eleven Kinetic Gain Protocol Suite documents at any domain's /.well-known/ paths. Vanilla JavaScript, ESM, runs in browser + Node 18+ + Deno + Bun.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "src/",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "lint": "node --check src/index.js src/probe.js src/scoring.js test/probe.test.js test/scoring.test.js",
+    "example:cli": "node examples/cli.js"
+  },
+  "keywords": [
+    "kinetic-gain",
+    "kinetic-gain-protocol-suite",
+    "ai-governance",
+    "well-known",
+    "aeo",
+    "agent-cards",
+    "decision-cards",
+    "vendor-disclosure",
+    "probe",
+    "vanilla-js",
+    "zero-dependencies"
+  ],
+  "author": "Miz Causevic <miz@kineticgain.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizcausevic-dev/well-known-probe-js.git"
+  },
+  "homepage": "https://github.com/mizcausevic-dev/well-known-probe-js#readme",
+  "bugs": {
+    "url": "https://github.com/mizcausevic-dev/well-known-probe-js/issues"
+  }
+}

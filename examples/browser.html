@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>well-known-probe-js — browser example</title>
+  <style>
+    body { font: 14px/1.5 system-ui; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.3rem; }
+    input { width: 100%; padding: 0.6rem; font: inherit; }
+    button { margin-top: 0.5rem; padding: 0.5rem 1rem; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>Probe any domain for Kinetic Gain Suite documents</h1>
+  <p>Type a domain and click probe. Probes 11 well-known paths in parallel from your browser.</p>
+  <input id="domain" placeholder="kineticgain.com" value="kineticgain.com" />
+  <button id="go">Probe</button>
+  <pre id="out">(results will appear here)</pre>
+
+  <script type="module">
+    import { probeWellKnown } from "../src/index.js";
+
+    document.getElementById("go").addEventListener("click", async () => {
+      const domain = document.getElementById("domain").value.trim();
+      const out = document.getElementById("out");
+      out.textContent = "probing...";
+      try {
+        const result = await probeWellKnown(domain, { timeout: 8000 });
+        out.textContent = JSON.stringify(result, null, 2);
+      } catch (err) {
+        out.textContent = "ERROR: " + (err.message ?? err);
+      }
+    });
+  </script>
+</body>
+</html>
